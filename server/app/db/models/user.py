@@ -1,7 +1,7 @@
 from app.db.base import Base
 from app.core.hashing import Hasher
 from app.schemas.user import PasswordUpdate, UserCreate, UserProfileUpdate, ShowUser
-from sqlalchemy.orm import Session, relationship
+from sqlalchemy.orm import Session
 from sqlalchemy import Boolean, Column, Integer, String
 
 

@@ -10,6 +10,7 @@ class UserCreate(BaseModel):
     last_name: str = None
     phone: str = None
     company: str = None
+    is_admin: bool = False
 
 
 class UserProfileUpdate(BaseModel):

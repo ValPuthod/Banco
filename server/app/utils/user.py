@@ -1,20 +1,20 @@
-from fastapi import Depends, HTTPException, Request, status
-from sqlalchemy.orm import Session
-from app.core.hashing import Hasher
-from app.db.models.user import get_user_by_username
+from typing import Optional
 from datetime import datetime
 from datetime import timedelta
-from typing import Optional
-from app.core.config import settings
 from jose import JWTError, jwt
 from app.db.session import get_db
+from sqlalchemy.orm import Session
+from app.core.config import settings
+from app.core.hashing import Hasher
+from app.db.models.user import get_user_by_email
+from fastapi import Depends, HTTPException, Request, status
 
 
 def authenticate_user_token(request: Request, db: Session = Depends(get_db)):
     try:
-        username = decode_access_token(
+        email = decode_access_token(
             request.headers.get('Authorization', ''))
-        user = get_user_by_username(username=username, db=db)
+        user = get_user_by_email(email=email, db=db)
         if not user:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
@@ -25,8 +25,8 @@ def authenticate_user_token(request: Request, db: Session = Depends(get_db)):
         raise HTTPException(status_code=401, detail="Invalid access token!")
 
 
-def authenticate_user_credentials(username: str, password: str, db: Session):
-    user = get_user_by_username(username=username, db=db)
+def authenticate_user_credentials(email: str, password: str, db: Session):
+    user = get_user_by_email(email=email, db=db)
     if not user:
         return False
     if not Hasher.verify_password(password, user.password):
