@@ -54,7 +54,7 @@ def login_for_access_token(user_data: UserLogin, db: Session = Depends(get_db)):
 @router.get("/me", response_model=ShowUser, status_code=status.HTTP_200_OK)
 def get_current_user(current_user: ShowUser = Depends(authenticate_user_token)):
 
-    return current_user
+    return current_user.to_dict()
 
 
 @router.put("/profile", response_model=ShowUser, status_code=status.HTTP_200_OK)
@@ -66,7 +66,7 @@ def update_user_profile(user_payload: UserProfileUpdate, current_user: ShowUser 
 
 @router.put("/password", status_code=status.HTTP_200_OK)
 def update_user_password(password_payload: PasswordUpdate, current_user: ShowUser = Depends(authenticate_user_token), db: Session = Depends(get_db)):
-    is_updated = update_password(current_user['email'], password_payload, db)
+    is_updated = update_password(current_user.email, password_payload, db)
 
     if not is_updated:
         raise HTTPException(
@@ -80,6 +80,6 @@ def update_user_password(password_payload: PasswordUpdate, current_user: ShowUse
 @router.get("/users", response_model=List[ShowUser], status_code=status.HTTP_200_OK)
 def get_all_users(current_user: ShowUser = Depends(authenticate_user_token), db: Session = Depends(get_db)):
     users = db.query(User).filter(
-        User.email != current_user['email']).order_by(User.id).all()
+        User.email != current_user.email).order_by(User.id).all()
 
     return [user.to_dict() for user in users]

@@ -14,7 +14,6 @@ class UserCreate(BaseModel):
 
 
 class UserProfileUpdate(BaseModel):
-    email: EmailStr
     first_name: str = None
     last_name: str = None
     phone: str = None

@@ -46,7 +46,7 @@ def create_new_user(user: UserCreate, db: Session):
 
 
 def update_user(user: ShowUser, user_payload: UserProfileUpdate, db: Session):
-    for key, value in user_payload.dict(exclude_unset=True).items():
+    for key, value in user_payload.model_dump(exclude_unset=True).items():
         setattr(user, key, value)
 
     db.commit()

@@ -18,6 +18,7 @@ import * as yup from 'yup'
 import toast from 'react-hot-toast'
 import { yupResolver } from '@hookform/resolvers/yup'
 import axios from 'src/utils/axios'
+import { LoadingButton } from '@mui/lab'
 
 const schema = yup.object().shape({
   firstName: yup.string().required(),
@@ -28,6 +29,7 @@ const schema = yup.object().shape({
 
 const TabProfile = () => {
   const { user, setUser } = useAuth()
+  const [loading, setLoading] = useState(false)
 
   const defaultValues = {
     firstName: user?.firstName,
@@ -44,14 +46,17 @@ const TabProfile = () => {
   } = useForm({ defaultValues, resolver: yupResolver(schema) })
 
   const onFormSubmit = data => {
+    setLoading(true)
     axios
-      .put(`/users/${user?.id}`, data)
+      .put('/profile', data)
       .then(res => {
-        setUser(res?.data?.user)
+        setUser(res?.data)
         toast.success('Account details updated!')
+        setLoading(false)
       })
       .catch(err => {
         toast.error(err?.data?.detail)
+        setLoading(false)
       })
   }
 
@@ -141,9 +146,9 @@ const TabProfile = () => {
                   />
                 </Grid>
                 <Grid item xs={12} sx={{ pt: theme => `${theme.spacing(6.5)} !important` }}>
-                  <Button variant='contained' type='submit' sx={{ mr: 4 }}>
+                  <LoadingButton loading={loading} variant='contained' type='submit' sx={{ mr: 4 }}>
                     Save Changes
-                  </Button>
+                  </LoadingButton>
                   <Button type='reset' variant='tonal' color='secondary' onClick={() => reset()}>
                     Reset
                   </Button>

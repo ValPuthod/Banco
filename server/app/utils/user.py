@@ -20,7 +20,7 @@ def authenticate_user_token(request: Request, db: Session = Depends(get_db)):
                 status_code=status.HTTP_401_UNAUTHORIZED,
                 detail="Invalid access token!",
             )
-        return user.to_dict()
+        return user
     except JWTError:
         raise HTTPException(status_code=401, detail="Invalid access token!")
 
