@@ -67,12 +67,15 @@ const LinkStyled = styled(Link)(({ theme }) => ({
 }))
 
 const schema = yup.object().shape({
-  email: yup.string().email().required(),
-  firstName: yup.string().required(),
-  lastName: yup.string().required(),
-  phone: yup.string().required(),
-  company: yup.string().required(),
-  password: yup.string().min(5).required()
+  email: yup.string().email("Le format de l'adresse e-mail est invalide").required('Le champ email est requis'),
+  firstName: yup.string().required('Le champ prénom est requis'),
+  lastName: yup.string().required('Le champ nom est requis'),
+  phone: yup.string().required('Le champ téléphone est requis'),
+  company: yup.string().required('Le champ entreprise est requis'),
+  password: yup
+    .string()
+    .min(5, 'Le mot de passe doit contenir au moins 5 caractères')
+    .required('Le champ mot de passe est requis')
 })
 
 const Register = () => {
