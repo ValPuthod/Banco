@@ -6,7 +6,7 @@ function Loader() {
         <Grid item xs={12}>
             <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column', justifyContent: 'center' }}>
                 <CircularProgress sx={{ my: 4 }} />
-                <Typography>Loading...</Typography>
+                <Typography>Chargement...</Typography>
             </Box>
         </Grid>
     )

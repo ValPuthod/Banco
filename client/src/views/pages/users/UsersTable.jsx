@@ -17,11 +17,11 @@ const UsersTable = () => {
       <Table sx={{ minWidth: 650 }} aria-label='simple table'>
         <TableHead>
           <TableRow>
-            <TableCell>Fist Name</TableCell>
-            <TableCell>Last Name</TableCell>
+            <TableCell>Prénom</TableCell>
+            <TableCell>Nom</TableCell>
             <TableCell>Email</TableCell>
-            <TableCell>Phone</TableCell>
-            <TableCell>Company</TableCell>
+            <TableCell>Téléhone</TableCell>
+            <TableCell>Société</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

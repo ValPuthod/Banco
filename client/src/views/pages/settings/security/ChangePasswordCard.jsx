@@ -32,18 +32,8 @@ const defaultValues = {
 }
 
 const schema = yup.object().shape({
-  currentPassword: yup
-    .string()
-    .min(6, 'Le mot de passe actuel doit contenir au moins 6 caractères')
-    .required('Le champ mot de passe actuel est requis'),
-  password: yup
-    .string()
-    .min(6, 'Le nouveau mot de passe doit contenir au moins 6 caractères')
-    .required('Le champ nouveau mot de passe est requis'),
   passwordConfirmation: yup
     .string()
-    .required('Le champ confirmation de mot de passe est requis')
-    .oneOf([yup.ref('password')], 'Les mots de passe doivent correspondre')
 })
 
 const ChangePasswordCard = () => {
@@ -88,13 +78,13 @@ const ChangePasswordCard = () => {
 
   return (
     <Card>
-      <CardHeader title='Change Password' />
+      <CardHeader title='Changer mon mot de passe' />
       <CardContent>
         <form onSubmit={handleSubmit(onPasswordFormSubmit)}>
           <Grid container spacing={5}>
             <Grid item xs={12} sm={6}>
               <Controller
-                name='currentPassword'
+                name='Mot de passe actuel'
                 control={control}
                 rules={{ required: true }}
                 render={({ field: { value, onChange } }) => (
@@ -102,7 +92,7 @@ const ChangePasswordCard = () => {
                     fullWidth
                     value={value}
                     onChange={onChange}
-                    label='Current Password'
+                    label='Mot de passe actuel'
                     placeholder='············'
                     id='input-current-password'
                     error={Boolean(errors.currentPassword)}
@@ -140,7 +130,7 @@ const ChangePasswordCard = () => {
                     fullWidth
                     value={value}
                     onChange={onChange}
-                    label='New Password'
+                    label='Nouveau mot de passe'
                     id='input-new-password'
                     placeholder='············'
                     error={Boolean(errors.password)}
@@ -174,7 +164,7 @@ const ChangePasswordCard = () => {
                     value={value}
                     onChange={onChange}
                     placeholder='············'
-                    label='Confirm New Password'
+                    label='Confirmer le nouveau mot de passe'
                     id='input-confirm-new-password'
                     error={Boolean(errors.passwordConfirmation)}
                     type={values.showPasswordConfirmation ? 'text' : 'password'}
@@ -200,14 +190,14 @@ const ChangePasswordCard = () => {
               />
             </Grid>
             <Grid item xs={12}>
-              <Typography variant='h6'>Password Requirements:</Typography>
+              <Typography variant='h6'>Condition du mot de passe :</Typography>
               <Box component='ul' sx={{ pl: 6, mb: 0, '& li': { mb: 1.5, color: 'text.secondary' } }}>
-                <li>Minimum 6 characters long - the more, the better</li>
+                <li>6 caractères minimum</li>
               </Box>
             </Grid>
             <Grid item xs={12}>
               <Button variant='contained' type='submit' sx={{ mr: 4 }}>
-                Save Changes
+                Sauvegarder
               </Button>
               <Button type='reset' variant='tonal' color='secondary' onClick={() => reset()}>
                 Reset

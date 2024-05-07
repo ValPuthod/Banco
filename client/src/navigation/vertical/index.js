@@ -1,28 +1,28 @@
 const navigation = () => {
   return [
     {
-      title: 'Users',
+      title: 'Contacts',
       path: '/users',
       icon: 'ph:users',
       adminOnly: true
     },
     {
-      title: 'Reservations',
+      title: 'Réservations',
       path: '/reservations',
       icon: 'fluent-mdl2:reservation-orders'
     },
     {
-      title: 'Consult my Team',
+      title: 'L équipe TVT',
       path: '/consult-my-team',
       icon: 'fluent:people-team-toolbox-20-regular'
     },
     {
-      title: 'Join Us',
+      title: 'Nous rejoindre',
       path: '/join-us',
       icon: 'fluent:people-team-add-20-regular'
     },
     {
-      title: 'My Profile',
+      title: 'Mon profil',
       path: '/settings/profile',
       icon: 'gg:profile'
     }

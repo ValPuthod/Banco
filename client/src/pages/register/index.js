@@ -67,15 +67,6 @@ const LinkStyled = styled(Link)(({ theme }) => ({
 }))
 
 const schema = yup.object().shape({
-  email: yup.string().email("Le format de l'adresse e-mail est invalide").required('Le champ email est requis'),
-  firstName: yup.string().required('Le champ prénom est requis'),
-  lastName: yup.string().required('Le champ nom est requis'),
-  phone: yup.string().required('Le champ téléphone est requis'),
-  company: yup.string().required('Le champ entreprise est requis'),
-  password: yup
-    .string()
-    .min(5, 'Le mot de passe doit contenir au moins 5 caractères')
-    .required('Le champ mot de passe est requis')
 })
 
 const Register = () => {
@@ -145,24 +136,24 @@ const Register = () => {
             <img src='/images/logo.png' alt='logo' width={200} height={200} style={{ alignSelf: 'center' }} />
             <Box sx={{ my: 6 }}>
               <Typography variant='h3' sx={{ mb: 1.5 }}>
-                Adventure starts here 🚀
+                S'inscrire
               </Typography>
-              <Typography sx={{ color: 'text.secondary' }}>Make your app management easy and fun!</Typography>
+              <Typography sx={{ color: 'text.secondary' }}></Typography>
             </Box>
             <form noValidate autoComplete='off' onSubmit={handleSubmit(onSubmit)}>
               <Box sx={{ mb: 4 }}>
                 <Controller
-                  name='firstName'
+                  name='Prenom'
                   control={control}
                   rules={{ required: true }}
                   render={({ field: { value, onChange, onBlur } }) => (
                     <CustomTextField
                       fullWidth
-                      label='First Name'
+                      label='Prénom'
                       value={value}
                       onBlur={onBlur}
                       onChange={onChange}
-                      placeholder='First Name'
+                      placeholder='Prénom'
                       error={Boolean(errors.firstName)}
                       {...(errors.firstName && { helperText: errors.firstName.message })}
                     />
@@ -171,17 +162,17 @@ const Register = () => {
               </Box>
               <Box sx={{ mb: 4 }}>
                 <Controller
-                  name='lastName'
+                  name='Nom'
                   control={control}
                   rules={{ required: true }}
                   render={({ field: { value, onChange, onBlur } }) => (
                     <CustomTextField
                       fullWidth
-                      label='Last Name'
+                      label='Nom'
                       value={value}
                       onBlur={onBlur}
                       onChange={onChange}
-                      placeholder='Last Name'
+                      placeholder='Nom'
                       error={Boolean(errors.lastName)}
                       {...(errors.lastName && { helperText: errors.lastName.message })}
                     />
@@ -209,17 +200,17 @@ const Register = () => {
               </Box>
               <Box sx={{ mb: 4 }}>
                 <Controller
-                  name='phone'
+                  name='Telephone'
                   control={control}
                   rules={{ required: true }}
                   render={({ field: { value, onChange, onBlur } }) => (
                     <CustomTextField
                       fullWidth
-                      label='Phone'
+                      label='Téléphone'
                       value={value}
                       onBlur={onBlur}
                       onChange={onChange}
-                      placeholder='Phone'
+                      placeholder='Téléphone'
                       error={Boolean(errors.phone)}
                       {...(errors.phone && { helperText: errors.phone.message })}
                     />
@@ -228,17 +219,17 @@ const Register = () => {
               </Box>
               <Box sx={{ mb: 4 }}>
                 <Controller
-                  name='company'
+                  name='Societe'
                   control={control}
                   rules={{ required: true }}
                   render={({ field: { value, onChange, onBlur } }) => (
                     <CustomTextField
                       fullWidth
-                      label='Company'
+                      label='Société'
                       value={value}
                       onBlur={onBlur}
                       onChange={onChange}
-                      placeholder='Company'
+                      placeholder='Société'
                       error={Boolean(errors.company)}
                       {...(errors.company && { helperText: errors.company.message })}
                     />
@@ -255,9 +246,9 @@ const Register = () => {
                       fullWidth
                       value={value}
                       onBlur={onBlur}
-                      label='Password'
+                      label='Mot de passe'
                       onChange={onChange}
-                      placeholder='Password'
+                      placeholder='Mot de passe'
                       id='auth-login-v2-password'
                       error={Boolean(errors.password)}
                       {...(errors.password && { helperText: errors.password.message })}
@@ -280,12 +271,12 @@ const Register = () => {
                 />
               </Box>
               <Button fullWidth type='submit' variant='contained' sx={{ my: 6 }}>
-                Sign up
+                Créer mon compte
               </Button>
               <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
-                <Typography sx={{ color: 'text.secondary', mr: 2 }}>Already have an account?</Typography>
+                <Typography sx={{ color: 'text.secondary', mr: 2 }}>Vous êtes déja inscrits?</Typography>
                 <Typography component={LinkStyled} href='/login'>
-                  Sign in instead
+                  Connectez-vous
                 </Typography>
               </Box>
             </form>

@@ -21,10 +21,6 @@ import axios from 'src/utils/axios'
 import { LoadingButton } from '@mui/lab'
 
 const schema = yup.object().shape({
-  firstName: yup.string().required('Le champ prénom est requis'),
-  lastName: yup.string().required('Le champ nom est requis'),
-  phone: yup.string().required('Le champ téléphone est requis'),
-  company: yup.string().required('Le champ entreprise est requis')
 })
 
 const TabProfile = () => {
@@ -65,23 +61,23 @@ const TabProfile = () => {
       {/* Account Details Card */}
       <Grid item xs={12}>
         <Card>
-          <CardHeader title='Profile Details' />
+          <CardHeader title='Profil' />
           <form onSubmit={handleSubmit(onFormSubmit)}>
             <CardContent>
               <Grid container spacing={5}>
                 <Grid item xs={12} sm={6}>
                   <Controller
-                    name='firstName'
+                    name='Prenom'
                     control={control}
                     rules={{ required: true }}
                     render={({ field: { value, onChange, onBlur } }) => (
                       <CustomTextField
                         fullWidth
-                        label='First Name'
+                        label='Prénom'
                         value={value}
                         onBlur={onBlur}
                         onChange={onChange}
-                        placeholder='First Name'
+                        placeholder='Prénom'
                         error={Boolean(errors.firstName)}
                         {...(errors.firstName && { helperText: errors.firstName.message })}
                       />
@@ -90,17 +86,17 @@ const TabProfile = () => {
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <Controller
-                    name='lastName'
+                    name='Nom'
                     control={control}
                     rules={{ required: true }}
                     render={({ field: { value, onChange, onBlur } }) => (
                       <CustomTextField
                         fullWidth
-                        label='Last Name'
+                        label='Nom'
                         value={value}
                         onBlur={onBlur}
                         onChange={onChange}
-                        placeholder='Last Name'
+                        placeholder='Nom'
                         error={Boolean(errors.lastName)}
                         {...(errors.lastName && { helperText: errors.lastName.message })}
                       />
@@ -115,11 +111,11 @@ const TabProfile = () => {
                     render={({ field: { value, onChange, onBlur } }) => (
                       <CustomTextField
                         fullWidth
-                        label='Phone'
+                        label='Téléhone'
                         value={value}
                         onBlur={onBlur}
                         onChange={onChange}
-                        placeholder='Phone'
+                        placeholder='Téléhone'
                         error={Boolean(errors.phone)}
                         {...(errors.phone && { helperText: errors.phone.message })}
                       />
@@ -134,11 +130,11 @@ const TabProfile = () => {
                     render={({ field: { value, onChange, onBlur } }) => (
                       <CustomTextField
                         fullWidth
-                        label='Company'
+                        label='Société'
                         value={value}
                         onBlur={onBlur}
                         onChange={onChange}
-                        placeholder='Company'
+                        placeholder='Société'
                         error={Boolean(errors.company)}
                         {...(errors.company && { helperText: errors.company.message })}
                       />
@@ -147,7 +143,7 @@ const TabProfile = () => {
                 </Grid>
                 <Grid item xs={12} sx={{ pt: theme => `${theme.spacing(6.5)} !important` }}>
                   <LoadingButton loading={loading} variant='contained' type='submit' sx={{ mr: 4 }}>
-                    Save Changes
+                    Sauvegarder
                   </LoadingButton>
                   <Button type='reset' variant='tonal' color='secondary' onClick={() => reset()}>
                     Reset

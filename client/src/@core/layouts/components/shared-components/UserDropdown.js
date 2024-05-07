@@ -126,13 +126,13 @@ const UserDropdown = props => {
         <MenuItemStyled sx={{ p: 0 }} onClick={() => handleDropdownClose('/settings/profile')}>
           <Box sx={styles}>
             <Icon icon='tabler:settings' />
-            Settings
+            Paramètres
           </Box>
         </MenuItemStyled>
         <MenuItemStyled sx={{ p: 0 }} onClick={handleLogout}>
           <Box sx={styles}>
             <Icon icon='tabler:logout' />
-            Sign Out
+            Se déconnecter
           </Box>
         </MenuItemStyled>
       </Menu>

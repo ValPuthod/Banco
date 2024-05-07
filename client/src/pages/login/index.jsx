@@ -71,11 +71,6 @@ const LinkStyled = styled(Link)(({ theme }) => ({
 }))
 
 const schema = yup.object().shape({
-  email: yup.string().required('Le champ email est requis'),
-  password: yup
-    .string()
-    .min(5, 'Le mot de passe doit contenir au moins 5 caractères')
-    .required('Le champ mot de passe est requis')
 })
 
 const LoginPage = () => {
@@ -106,12 +101,10 @@ const LoginPage = () => {
     auth.login({ email, password, rememberMe }, () => {
       setError('email', {
         type: 'manual',
-        message: "L'e-mail ou le mot de passe est invalide"
       })
     })
   }
-  const imageSource = skin === 'bordered' ? 'auth-v2-login-illustration-bordered' : 'auth-v2-login-illustration'
-
+  const imageSource =  'login'
   return (
     <Box className='content-right' sx={{ backgroundColor: 'background.paper' }}>
       {!hidden ? (
@@ -152,10 +145,10 @@ const LoginPage = () => {
             <img src='/images/logo.png' alt='logo' width={200} height={200} style={{ alignSelf: 'center' }} />
             <Box sx={{ my: 6 }}>
               <Typography variant='h3' sx={{ mb: 1.5 }}>
-                {`Welcome to ${themeConfig.templateName}!`}
+                {`Bienvenue sur ${themeConfig.templateName}!`}
               </Typography>
               <Typography sx={{ color: 'text.secondary' }}>
-                Please sign-in to your account and explore the app
+                Connectez-vous pour explorer BANCO
               </Typography>
             </Box>
             <form noValidate autoComplete='off' onSubmit={handleSubmit(onSubmit)}>
@@ -190,7 +183,7 @@ const LoginPage = () => {
                       fullWidth
                       value={value}
                       onBlur={onBlur}
-                      label='Password'
+                      label='Mot de passe'
                       onChange={onChange}
                       placeholder='Password'
                       id='auth-login-v2-password'
@@ -217,12 +210,12 @@ const LoginPage = () => {
                 />
               </Box>
               <Button fullWidth type='submit' variant='contained' sx={{ mb: 4 }}>
-                Login
+                Se connecter
               </Button>
               <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
-                <Typography sx={{ color: 'text.secondary', mr: 2 }}>New on our platform?</Typography>
+                <Typography sx={{ color: 'text.secondary', mr: 2 }}>Vous êtes nouveau ?</Typography>
                 <Typography href='/register' component={LinkStyled}>
-                  Create an account
+                  Créer votre compte
                 </Typography>
               </Box>
             </form>

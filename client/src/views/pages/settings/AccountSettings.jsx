@@ -94,7 +94,7 @@ const AccountSettings = ({ tab }) => {
                   label={
                     <Box sx={{ display: 'flex', alignItems: 'center', ...(!hideText && { '& svg': { mr: 2 } }) }}>
                       <Icon fontSize='1.25rem' icon='tabler:users' />
-                      {!hideText && 'Profile'}
+                      {!hideText && 'Profil'}
                     </Box>
                   }
                 />
@@ -103,7 +103,7 @@ const AccountSettings = ({ tab }) => {
                   label={
                     <Box sx={{ display: 'flex', alignItems: 'center', ...(!hideText && { '& svg': { mr: 2 } }) }}>
                       <Icon fontSize='1.25rem' icon='tabler:lock' />
-                      {!hideText && 'Security'}
+                      {!hideText && 'Sécurité'}
                     </Box>
                   }
                 />

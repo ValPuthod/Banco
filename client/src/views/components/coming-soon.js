@@ -40,12 +40,12 @@ const ComingSoon = () => {
         <BoxWrapper>
           <Box sx={{ mb: 6, textAlign: 'center' }}>
             <Typography variant='h2' sx={{ mb: 1.5 }}>
-              We are launching this page soon 🚀
+              Cette page sera bientôt disponible
             </Typography>
-            <Typography sx={{ color: 'text.secondary' }}>We're creating something awesome. Please wait!</Typography>
+            <Typography sx={{ color: 'text.secondary' }}>Soyez patients !</Typography>
           </Box>
         </BoxWrapper>
-        <Img height='500' alt='coming-soon-illustration' src='/images/pages/misc-coming-soon.png' />
+        <Img height='500' alt='coming-soon-illustration' src='/images/pages/coming-soon.png' />
       </Box>
       <FooterIllustrations />
     </Box>
