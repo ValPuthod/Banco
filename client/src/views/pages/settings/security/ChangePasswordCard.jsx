@@ -32,12 +32,18 @@ const defaultValues = {
 }
 
 const schema = yup.object().shape({
-  currentPassword: yup.string().min(6).required(),
-  password: yup.string().min(6).required(),
+  currentPassword: yup
+    .string()
+    .min(6, 'Le mot de passe actuel doit contenir au moins 6 caractères')
+    .required('Le champ mot de passe actuel est requis'),
+  password: yup
+    .string()
+    .min(6, 'Le nouveau mot de passe doit contenir au moins 6 caractères')
+    .required('Le champ nouveau mot de passe est requis'),
   passwordConfirmation: yup
     .string()
-    .required()
-    .oneOf([yup.ref('password')], 'Passwords must match')
+    .required('Le champ confirmation de mot de passe est requis')
+    .oneOf([yup.ref('password')], 'Les mots de passe doivent correspondre')
 })
 
 const ChangePasswordCard = () => {
