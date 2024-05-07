@@ -45,6 +45,7 @@ const ComingSoon = () => {
             <Typography sx={{ color: 'text.secondary' }}>Soyez patients !</Typography>
           </Box>
         </BoxWrapper>
+        
         <Img height='500' alt='coming-soon-illustration' src='/images/pages/coming-soon.png' />
       </Box>
       <FooterIllustrations />

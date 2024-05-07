@@ -22,3 +22,183 @@ code:not([class*='language-']):after {
 code[class*='language-'] {
   padding: 0;
 }
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Crée des colonnes avec une largeur minimale de 300px */
+  gap: 20px; /* Espacement entre les éléments */
+}
+
+.person {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.person img {
+  max-width: 100%;
+  border-radius: 50%;
+  margin-bottom: 10px; /* Espacement sous l'image */
+}
+
+.contact-info {
+  display: none;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.person-info {
+  flex: 1; /* Permet au contenu de s'étendre pour occuper tout l'espace disponible */
+}
+
+.person:hover .contact-info {
+  display: block;
+}
+
+.person button {
+  background-color: #007bff; /* Couleur de fond */
+  color: white; /* Couleur du texte */
+  border: none; /* Suppression de la bordure */
+  padding: 10px 20px; /* Espacement à l'intérieur du bouton */
+  cursor: pointer; /* Curseur de la souris */
+  border-radius: 5px; /* Bordure arrondie */
+  transition: background-color 0.3s; /* Transition fluide lors du survol */
+}
+
+.person button:hover {
+  background-color: #0056b3; /* Changement de couleur au survol */
+}
+
+
+/***********************SAVE 2********************************************/
+/* 
+.people-grid {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-x: auto;
+}
+
+.person {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: auto;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.person img {
+  max-width: 100%;
+  border-radius: 50%;
+  margin-bottom: 10px; 
+
+.contact-info {
+  display: none;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.person-info {
+  flex: 1; 
+}
+
+.person:hover .contact-info {
+  display: block;
+}
+
+.person button {
+  background-color: #007bff; 
+  color: white; 
+  border: none; 
+  padding: 10px 20px; 
+  cursor: pointer; 
+  border-radius: 5px; 
+  transition: background-color 0.3s; 
+}
+
+.person button:hover {
+  background-color: #0056b3; 
+}
+
+.person:last-child {
+  margin-right: 0; 
+} */
+
+
+
+
+
+/********************SAVE 1************************************************************/
+/* .person-grid {
+  display: flex;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  flex-wrap: wrap; 
+  justify-content: flex-start; 
+  align-items: center; 
+}
+
+.person {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  width: 300px; 
+  margin: 10px; 
+}
+
+.person img {
+  max-width: 100%;
+  border-radius: 50%;
+}
+
+.contact-info {
+  display: none;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  
+}
+.person-info {
+  flex: 1; 
+}
+
+.person:hover .contact-info {
+  display: block;
+}
+.person button {
+  background-color: #007bff; 
+  color: white; 
+  border: none; 
+  padding: 10px 20px;
+  cursor: pointer; 
+  border-radius: 5px; 
+  transition: background-color 0.3s; 
+  
+  
+}
+.person button:hover {
+  background-color: #0056b3;
+}
+.person button {
+  margin-left: center; 
+} */
