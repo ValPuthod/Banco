@@ -71,6 +71,8 @@ const LinkStyled = styled(Link)(({ theme }) => ({
 }))
 
 const schema = yup.object().shape({
+  email: yup.string().required(),
+  password: yup.string().min(5).required()
 })
 
 const LoginPage = () => {
@@ -101,6 +103,7 @@ const LoginPage = () => {
     auth.login({ email, password, rememberMe }, () => {
       setError('email', {
         type: 'manual',
+        message: 'email ou mot de passe invalide'
       })
     })
   }

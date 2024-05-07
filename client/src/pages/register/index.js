@@ -67,6 +67,12 @@ const LinkStyled = styled(Link)(({ theme }) => ({
 }))
 
 const schema = yup.object().shape({
+  email: yup.string().email().required(),
+  firstName: yup.string().required(),
+  lastName: yup.string().required(),
+  phone: yup.string().required(),
+  company: yup.string().required(),
+  password: yup.string().min(5).required()
 })
 
 const Register = () => {

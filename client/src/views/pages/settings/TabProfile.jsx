@@ -21,6 +21,10 @@ import axios from 'src/utils/axios'
 import { LoadingButton } from '@mui/lab'
 
 const schema = yup.object().shape({
+  firstName: yup.string().required(),
+  lastName: yup.string().required(),
+  phone: yup.string().required(),
+  company: yup.string().required()
 })
 
 const TabProfile = () => {

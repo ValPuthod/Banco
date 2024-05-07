@@ -32,8 +32,12 @@ const defaultValues = {
 }
 
 const schema = yup.object().shape({
+  currentPassword: yup.string().min(6).required(),
+  password: yup.string().min(6).required(),
   passwordConfirmation: yup
     .string()
+    .required()
+    .oneOf([yup.ref('password')], 'Passwords must match')
 })
 
 const ChangePasswordCard = () => {
