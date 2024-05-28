@@ -54,7 +54,7 @@ def login_user(user_data: UserLogin, db: Session = Depends(get_db)):
     return {"token": {"access_token": access_token, "token_type": "bearer"}, "user": user.to_dict()}
 
 
-@router.get("/users", response_model=List[ShowUser], status_code=status.HTTP_200_OK)
+@router.get("/users", status_code=status.HTTP_200_OK)
 def get_all_users(current_user: ShowUser = Depends(authenticate_user_token), db: Session = Depends(get_db)):
     # Fetch all users from the database except the current user
     users = db.query(User).filter(
