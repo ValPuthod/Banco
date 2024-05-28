@@ -110,7 +110,7 @@ const LoginPage = () => {
       })
     })
   }
-  const imageSource =  'login'
+  const imageSource = 'login'
   return (
     <Box className='content-right' sx={{ backgroundColor: 'background.paper' }}>
       {!hidden ? (
@@ -153,9 +153,7 @@ const LoginPage = () => {
               <Typography variant='h3' sx={{ mb: 1.5 }}>
                 {`Bienvenue sur ${themeConfig.templateName}!`}
               </Typography>
-              <Typography sx={{ color: 'text.secondary' }}>
-                Connectez-vous pour explorer BANCO
-              </Typography>
+              <Typography sx={{ color: 'text.secondary' }}>Connectez-vous pour explorer BANCO</Typography>
             </Box>
             <form noValidate autoComplete='off' onSubmit={handleSubmit(onSubmit)}>
               <Box sx={{ mb: 4 }}>
